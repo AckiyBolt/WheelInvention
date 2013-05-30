@@ -1,11 +1,9 @@
 package ua.org.bolt.collection;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import static org.junit.Assert.*;
 import ua.org.bolt.collection.exception.CollectionIsEmptyException;
 import ua.org.bolt.collection.exception.CollectionIsFullException;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * Class CycleBufferTest
