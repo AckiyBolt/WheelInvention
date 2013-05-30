@@ -3,6 +3,8 @@
 target/
 build/
 dist/
+out/
+.gradle/
 
 # Idea files #
 ##############
