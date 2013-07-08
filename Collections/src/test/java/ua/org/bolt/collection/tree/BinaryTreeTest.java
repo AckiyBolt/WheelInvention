@@ -126,13 +126,32 @@ public class BinaryTreeTest {
         assertEquals(expected, actual);
     }
 
-    @Ignore @Test
-    public void isAdded () {
+    @Test
+    public void testPut_PushCorrectPair_TrueAsAdded () {
 
+        assertTrue(underTest.put(1, 1));
+    }
+
+    @Test
+    public void testPut_PushSamePair_FalseAsNotAdded () {
+
+        underTest.put(1, 1);
+        assertFalse(underTest.put(1, 1));
+    }
+
+    @Test
+    public void testPut_PushPairWithSameKeyAndDifferentValue_FalseAsNotAdded () {
+
+        underTest.put(1, 1);
+        assertFalse(underTest.put(1, 2));
     }
 
     @Ignore @Test
     public void nodeRemovedAndValueReturnedToCaller () {
 
+        underTest.put(1, 1);
+        Integer actual = underTest.remove(Integer.valueOf(1));
+        Integer expected = 1;
+        assertEquals(expected, actual);
     }
 }

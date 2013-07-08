@@ -32,7 +32,7 @@ public class BinaryTree <K extends Comparable<K>, V> {
         return null;
     }
 
-    public void put (K key, V value) {
+    public boolean put (K key, V value) {
 
         Node<K, V> newNode, lower, upper;
         upper = lower = root;
@@ -51,7 +51,7 @@ public class BinaryTree <K extends Comparable<K>, V> {
                     break;
                 default:
                     upper.value = value;
-                    return;
+                    return false;
             }
         }
 
@@ -64,7 +64,9 @@ public class BinaryTree <K extends Comparable<K>, V> {
                 lower.left = newNode;
             else
                 lower.right = newNode;
+
         size++;
+        return true;
     }
 
     public void remove(K key) {
