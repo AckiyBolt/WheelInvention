@@ -6,7 +6,6 @@ package ua.org.bolt.collection.tree;
  *
  * @author AckiyBolt
  */
-
 public class BinaryTree <K extends Comparable<K>, V> {
 
     private int size;

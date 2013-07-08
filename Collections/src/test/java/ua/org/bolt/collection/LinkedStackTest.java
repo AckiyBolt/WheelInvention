@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
  * Class LinkedStackTest
  *
  * @author AckiyBolt
- *         Created: 30.05.13 3:18
  */
 
 public class LinkedStackTest {

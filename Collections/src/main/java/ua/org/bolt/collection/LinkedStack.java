@@ -4,7 +4,6 @@ package ua.org.bolt.collection;
  * Class LinkedStack
  *
  * @author AckiyBolt
- *         Created: 30.05.13 3:17
  */
 public class LinkedStack<T> implements UnstorableCollection<T> {
 

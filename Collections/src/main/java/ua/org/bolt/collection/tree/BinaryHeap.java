@@ -5,6 +5,11 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Class BinaryHeap
+ *
+ * @author AckiyBolt
+ */
 public class BinaryHeap<T> {
 
     private List<T> elements;

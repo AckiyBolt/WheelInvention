@@ -9,7 +9,6 @@ import ua.org.bolt.collection.exception.CollectionIsFullException;
  * Class CycleBufferTest
  *
  * @author AckiyBolt
- *         Created: 24.05.13 23:45
  */
 public class CycleBufferTest {
 
