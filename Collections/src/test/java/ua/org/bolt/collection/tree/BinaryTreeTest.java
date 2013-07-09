@@ -22,12 +22,9 @@ public class BinaryTreeTest {
         underTest.put(40, 40);
         underTest.put(20, 20);
         underTest.put(30, 30);
-        underTest.put(50, 50);
-        underTest.put(70, 70);
-        underTest.put(10, 10);
 
         int actual = underTest.size();
-        int expected = 6;
+        int expected = 3;
         assertEquals(expected, actual);
     }
 
@@ -146,12 +143,44 @@ public class BinaryTreeTest {
         assertFalse(underTest.put(1, 2));
     }
 
-    @Ignore @Test
-    public void nodeRemovedAndValueReturnedToCaller () {
+    @Test
+    public void testRemove_AddAndThenRemoveOnePair_ValueReturnedToCaller () {
 
         underTest.put(1, 1);
         Integer actual = underTest.remove(Integer.valueOf(1));
         Integer expected = 1;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testRemove_AddOnePairAndRemoveOther_NullReturned () {
+
+        underTest.put(1, 1);
+        Integer actual = underTest.remove(Integer.valueOf(2));
+        Integer expected = null;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGet_Null_Null () {
+
+        underTest.put(1, 1);
+        Integer actual = underTest.get(null);
+        Integer expected = null;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPut_PairWithNullKey_false () {
+
+        assertFalse(underTest.put(null, 1));
+    }
+
+    @Test
+    public void testRemove_Null_Null () {
+
+        Integer actual = underTest.remove(null);
+        Integer expected = null;
         assertEquals(expected, actual);
     }
 }

@@ -9,13 +9,15 @@ package ua.org.bolt.collection.tree;
 public class BinaryTree <K extends Comparable<K>, V> {
 
     private int size;
-    Node<K, V> root;
+    private Node<K, V> root;
 
     protected Node<K, V> getRoot() {
         return root;
     }
 
     public V get (K key) {
+
+        if (key == null) return null;
 
         Node<K, V> node = root;
 
@@ -33,6 +35,8 @@ public class BinaryTree <K extends Comparable<K>, V> {
     }
 
     public boolean put (K key, V value) {
+
+        if (key == null) return false;
 
         Node<K, V> newNode, lower, upper;
         upper = lower = root;
@@ -69,8 +73,9 @@ public class BinaryTree <K extends Comparable<K>, V> {
         return true;
     }
 
-    public void remove(K key) {
+    public V remove(K key) {
         Node<K, V> upper = root, lower = null;
+        V result = null;
 
         loop: while (upper != null) {
 
@@ -89,7 +94,10 @@ public class BinaryTree <K extends Comparable<K>, V> {
             }
         }
 
-        if (upper == null) return;
+        if (upper == null)
+            return result;
+        else
+            result = upper.value;
 
         if (upper.right == null)
 
@@ -120,6 +128,7 @@ public class BinaryTree <K extends Comparable<K>, V> {
         }
 
         this.size--;
+        return result;
     }
 
     public int size () {
