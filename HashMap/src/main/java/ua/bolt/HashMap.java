@@ -14,7 +14,7 @@ public class HashMap {
     private Entry[] entries;
 
     public HashMap(int length) {
-        if (length <= 0) throw new IllegalArgumentException("Map size must be > 0");
+        if (length <= 0) throw new IllegalArgumentException("Map length must be > 0");
         this.length = length;
         entries = new Entry[length + (int)(length * 0.25)];
     }
