@@ -14,6 +14,7 @@ public class HashMap {
     private Entry[] entries;
 
     public HashMap(int length) {
+        if (length <= 0) throw new IllegalArgumentException("Map size must be > 0");
         this.length = length;
         entries = new Entry[length + (int)(length * 0.25)];
     }
@@ -26,7 +27,7 @@ public class HashMap {
         Long oldVal = null;
 
         for (int position = positionByKey(key); oldVal == null; position++) {
-            position = position > entries.length ? 0 : position;
+            position = position >= entries.length ? 0 : position;
 
             Entry entry = entries[position];
 
@@ -37,7 +38,6 @@ public class HashMap {
 
             } else if (entry == null) {
                 entry = entries[position] = new Entry(key, val);
-                oldVal = val;
                 size++;
                 break;
             }
@@ -50,7 +50,7 @@ public class HashMap {
         Long result = null;
 
         for (int position = positionByKey(key);; position++) {
-            position = position > entries.length ? 0 : position;
+            position = position >= entries.length ? 0 : position;
 
             Entry entry = entries[position];
 
@@ -85,6 +85,11 @@ public class HashMap {
         Entry(Integer key, Long val) {
             this.key = key;
             this.val = val;
+        }
+
+        @Override
+        public String toString() {
+            return key + ":" + val;
         }
     }
 }

@@ -17,6 +17,18 @@ public class HashMapTest {
         undertest = new HashMap(10);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_WhenCreateWithNegativeLength_ThenIllegalArgumentException() throws Exception {
+
+        undertest = new HashMap(-1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructor_WhenCreateWithZeroLength_ThenIllegalArgumentException() throws Exception {
+
+        undertest = new HashMap(0);
+    }
+
     @Test(expected = FullMapException.class)
     public void testPut_GivenFilledMap_WhenAddOneMoreNew_ThenFullMapException() throws Exception {
 
@@ -46,6 +58,26 @@ public class HashMapTest {
 
         Long expected = 666L;
         Long actual = undertest.get(20);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPut_GivenMapWithOneElement_WhenAddWithNewKey_ThenReturnsNull() throws Exception {
+
+        Long expected = null;
+        Long actual = undertest.put(1, 1L);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPut_GivenMapWithOneElement_WhenAddWithSameKey_ThenReturnsOldValue() throws Exception {
+
+        undertest.put(666, 666L);
+
+        Long expected = 666L;
+        Long actual = undertest.put(666, 1L);
 
         assertEquals(expected, actual);
     }
